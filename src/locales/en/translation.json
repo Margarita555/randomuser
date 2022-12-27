@@ -1,0 +1,11 @@
+{
+  "en": "en",
+  "uk": "uk",
+  "Home": "Home",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "registrationDate": "Registration date",
+  "birthDate": "Birth Date",
+  "somethingWentWrong": "Something went wrong. Try again later.",
+  "notFound": "Oops! Not Found"
+}
