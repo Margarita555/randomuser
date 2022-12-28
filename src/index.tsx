@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./i18n";
-// import store from "./store";
-// import { Provider } from "react-redux";
+import store from "./store";
+import { Provider } from "react-redux";
 import { Spinner } from "./shared/components";
 import "modern-normalize/modern-normalize.css";
 import "./index.css";
@@ -15,11 +15,11 @@ const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 root.render(
   <Suspense fallback={<Spinner />}>
     <React.StrictMode>
-      {/* <Provider store={store}> */}
-      <ThemeProvider theme={theme}>
-        <App />
-      </ThemeProvider>
-      {/* </Provider> */}
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      </Provider>
     </React.StrictMode>
   </Suspense>,
 );

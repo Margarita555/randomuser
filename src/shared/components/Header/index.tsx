@@ -6,9 +6,9 @@ const Header = () => {
   const { t } = useTranslation();
   return (
     <section>
-      <Link to="/home/user">Users</Link>
-      <Link to="/home/user/5">User Info</Link>
-      <Link to="/logout">Logout</Link>
+      <Link to="/home/users">Users</Link>
+      <Link to="/home/users/5">User Info</Link>
+      <Link to="/logout">Log out</Link>
     </section>
   );
 };

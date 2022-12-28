@@ -6,7 +6,7 @@ const LoginPage = () => {
   const { t } = useTranslation();
   return (
     <section>
-      <Link to="/home">Login</Link>
+      <Link to="/home">Log in</Link>
     </section>
   );
 };

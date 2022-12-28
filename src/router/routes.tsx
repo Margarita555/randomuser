@@ -17,8 +17,8 @@ const routes = createBrowserRouter(
         }
       >
         <Route index element={<HomePage />} />
-        <Route path="user" element={<UsersPage />} />
-        <Route path="user/:userId" element={<UserInfoPage />} />
+        <Route path="users" element={<UsersPage />} />
+        <Route path="users/:userId" element={<UserInfoPage />} />
       </Route>
       <Route path="/logout" element={<LogoutPage />} />
       <Route path="*" element={<NotFoundPage />} />
