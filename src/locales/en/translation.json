@@ -2,10 +2,14 @@
   "en": "en",
   "uk": "uk",
   "Home": "Home",
+  "notFound": "Oops! Not Found",
+  "somethingWentWrong": "Something went wrong. Try again later.",
   "firstName": "First Name",
   "lastName": "Last Name",
-  "registrationDate": "Registration date",
+  "registrationDate": "Registration Date",
   "birthDate": "Birth Date",
-  "somethingWentWrong": "Something went wrong. Try again later.",
-  "notFound": "Oops! Not Found"
+  "name": "Name",
+  "pnone": "Pnone",
+  "address": "Address",
+  "gender": "Gender"
 }

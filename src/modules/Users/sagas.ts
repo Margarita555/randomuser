@@ -12,12 +12,12 @@ export function* handleFetchUsers() {
   }
 }
 
-// export function* handleFetchUserById(userId: string) {
-//   try {
-//     const users: IUser[] = yield call(Api.fetchUsers);
-//     const user = users.find(user => user.id.value === userId);
-//     yield put({ type: types.FETCH_USER_BY_ID_SUCCEEDED, payload: user });
-//   } catch (e) {
-//     yield put({ type: types.FETCH_USER_BY_ID_FAILED, payload: e });
-//   }
-// }
+export function* handleFetchUserById(userId: string) {
+  try {
+    const users: IUser[] = yield call(Api.fetchUsers);
+    const user = users.find(user => user.login.md5 === userId);
+    yield put({ type: types.FETCH_USER_BY_ID_SUCCEEDED, payload: user });
+  } catch (e) {
+    yield put({ type: types.FETCH_USER_BY_ID_FAILED, payload: e });
+  }
+}

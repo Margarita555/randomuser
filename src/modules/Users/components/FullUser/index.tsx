@@ -19,14 +19,14 @@ const FullUser = ({ id, avatar, firstName, lastName, birthDate, gender }: IFullU
       <Link to={`/home/users/${id}`}>
         <img src={avatar} alt="avatar" width="180" />
         <p>
-          Name: <StyledName>{firstName}</StyledName>
-          <span>{lastName}</span>
+          {t("name")}: <StyledName>{t(firstName)}</StyledName>
+          <span>{t(lastName)}</span>
         </p>
         <p>
-          Birth Date: <span>{birthDate}</span>
+          {t("birthDate")}: <span>{t(birthDate)}</span>
         </p>
         <p>
-          Gender: <span>{gender}</span>
+          {t("gender")}: <span>{t(gender)}</span>
         </p>
       </Link>
     </StyledUser>

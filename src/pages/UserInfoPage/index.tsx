@@ -1,50 +1,53 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { usersSelector } from "../../modules/users/selectors";
-import { IUser } from "../../modules/users/models";
+import { errorSelector, loadingSelector, userSelector } from "../../modules/users/selectors";
+import * as types from "../../modules/users/actionTypes";
+import { Spinner } from "../../shared/components";
+import { ErrorMessage } from "../../shared/styles";
 // import { S } from "./styles";
 
 const UserInfoPage = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const isLoading = useSelector(loadingSelector);
+  const error = useSelector(errorSelector);
   const { userId } = useParams();
-  const users = useSelector(usersSelector);
-  const [user, setUser] = useState<IUser | null | undefined>(null);
+  const user = useSelector(userSelector);
+  // useEffect(() => {
+  //   const results = axios.get(`https://randomuser.me/api/?results=20`).then(results => console.log(results.data));
+  // }, []);
 
   useEffect(() => {
-    const requiredUser = users?.find(user => user.login.md5 === userId);
-    // console.log(user);
-    setUser(requiredUser);
-  }, [userId, users, user]);
-  //
-  // useEffect(() => {
-  //   dispatch({ type: types.FETCH_USER_BY_ID_REQUESTED, payload: userId })}
-  console.log(user);
-  // address phoneNumber registrationDate
+    dispatch({ type: types.FETCH_USER_BY_ID_REQUESTED, payload: userId });
+  }, [dispatch, userId]);
+
   return (
     <section>
-      {user && (
+      {error && <ErrorMessage>{t("somethingWentWrong")}</ErrorMessage>}
+      {isLoading && <Spinner />}
+      {!isLoading && user && (
         <>
           <img src={user.picture.large} alt="avatar" width="180" />
           <p>
-            Name:<span>{user.name.first}</span>
+            {t("name")}:<span>{t(user.name.first)}</span>
             <span>{user.name.last}</span>
           </p>
           <p>
-            Birth Date:<span>{user.dob.date}</span>
+            {t("birthDate")}:<span>{t(user.dob.date)}</span>
           </p>
           <p>
-            Gender:<span>{user.gender}</span>
+            {t("Gender")}:<span>{t(user.gender)}</span>
           </p>
           <p>
-            Address:<span>{user.location.country}</span>
+            {t("address")}:<span>{t(user.location.country)}</span>
           </p>
           <p>
-            Pnone:<span>{user.phone}</span>
+            {t("pnone")}:<span>{t(user.phone)}</span>
           </p>
           <p>
-            Registration Date:<span>{user.registered.date}</span>
+            {t("registrationDate")}:<span>{t(user.registered.date)}</span>
           </p>
         </>
       )}

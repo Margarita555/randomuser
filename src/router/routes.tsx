@@ -1,4 +1,3 @@
-import React from "react";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { HomePage, LoginPage, LogoutPage, NotFoundPage, UserInfoPage, UsersPage } from "../pages";
 import { Layout } from "../shared/components";
