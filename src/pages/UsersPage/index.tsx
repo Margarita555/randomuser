@@ -18,7 +18,6 @@ const UsersPage = () => {
   useEffect(() => {
     dispatch({ type: types.USERS_FETCH_REQUESTED });
   }, [dispatch]);
-  // console.log(users);
 
   return (
     <section>

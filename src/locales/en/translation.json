@@ -1,7 +1,7 @@
 {
   "en": "en",
   "uk": "uk",
-  "Home": "Home",
+  "home": "Home",
   "notFound": "Oops! Not Found",
   "somethingWentWrong": "Something went wrong. Try again later.",
   "firstName": "First Name",
@@ -11,5 +11,9 @@
   "name": "Name",
   "pnone": "Pnone",
   "address": "Address",
-  "gender": "Gender"
+  "gender": "Gender",
+  "users": "Users",
+  "userInfo": "User Info",
+  "login": "Log in",
+  "logout": "Log out"
 }

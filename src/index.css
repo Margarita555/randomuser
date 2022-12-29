@@ -8,6 +8,25 @@
   font-weight: 500;
   src: local("Gilroy"), url(./shared/fonts/Gilroy-SemiBold.woff) format("woff");
 }
+
+@font-face {
+  font-family: "Gilroy";
+  font-weight: 600;
+  src: local("Gilroy"), url(./shared/fonts/Gilroy-Bold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-weight: 700;
+  src: local("Gilroy"), url(./shared/fonts/Gilroy-ExtraBold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Monoton";
+  font-weight: 400;
+  src: local("Monoton"), url(./shared/fonts/Monoton-Regular.woff) format("woff");
+}
+
 @font-face {
   font-family: "PlayBold";
   font-weight: 700;

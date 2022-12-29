@@ -7,5 +7,3 @@ export const loadingSelector = (state: RootState) => state.users?.loading;
 export const errorSelector = (state: RootState) => state.users?.error;
 
 export const userSelector = (state: RootState) => state.users?.user;
-
-export const isLoggedInSelector = (state: RootState) => state.users?.isLoggedIn;

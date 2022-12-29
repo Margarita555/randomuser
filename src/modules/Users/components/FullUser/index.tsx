@@ -17,7 +17,7 @@ const FullUser = ({ id, avatar, firstName, lastName, birthDate, gender }: IFullU
   return (
     <StyledUser gender={gender}>
       <Link to={`/home/users/${id}`}>
-        <img src={avatar} alt="avatar" width="180" />
+        <img src={avatar} alt="avatar" width="160" />
         <p>
           {t("name")}: <StyledName>{t(firstName)}</StyledName>
           <span>{t(lastName)}</span>

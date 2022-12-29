@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { errorSelector, loadingSelector, userSelector } from "../../modules/users/selectors";
 import * as types from "../../modules/users/actionTypes";
+import { Notification } from "../../modules/users";
 import { Spinner } from "../../shared/components";
 import { ErrorMessage } from "../../shared/styles";
 // import { S } from "./styles";
@@ -15,6 +16,8 @@ const UserInfoPage = () => {
   const error = useSelector(errorSelector);
   const { userId } = useParams();
   const user = useSelector(userSelector);
+
+  console.log(userId);
   // useEffect(() => {
   //   const results = axios.get(`https://randomuser.me/api/?results=20`).then(results => console.log(results.data));
   // }, []);
@@ -27,6 +30,7 @@ const UserInfoPage = () => {
     <section>
       {error && <ErrorMessage>{t("somethingWentWrong")}</ErrorMessage>}
       {isLoading && <Spinner />}
+      {userId === "plug" && <Notification/>}
       {!isLoading && user && (
         <>
           <img src={user.picture.large} alt="avatar" width="180" />

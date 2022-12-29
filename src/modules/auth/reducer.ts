@@ -1,37 +1,36 @@
 import { Reducer } from "react";
 import { AnyAction } from "@reduxjs/toolkit";
 import * as types from "./actionTypes";
-import { IUserState } from "./models";
+import { IAuthState } from "./models";
 
 const initialState = {
-  users: [],
-  user: null,
+  isLoggedIn: null,
   loading: false,
   error: null,
 };
 
-const usersReducer: Reducer<IUserState | undefined, AnyAction> = (state = initialState, action) => {
+const authReducer: Reducer<IAuthState | undefined, AnyAction> = (state = initialState, action) => {
   switch (action.type) {
-    case types.USERS_FETCH_REQUESTED:
-    case types.FETCH_USER_BY_ID_REQUESTED:
+    case types.LOGIN_REQUESTED:
+    case types.LOGOUT_REQUESTED:
       return {
         ...state,
         loading: true,
       };
-    case types.USERS_FETCH_SUCCEEDED:
+    case types.LOGIN_SUCCEEDED:
       return {
         ...state,
         loading: false,
-        users: action.payload,
+        isLoggedIn: action.payload,
       };
-    case types.FETCH_USER_BY_ID_SUCCEEDED:
+    case types.LOGOUT_SUCCEEDED:
       return {
         ...state,
         loading: false,
-        user: action.payload,
+        isLoggedIn: action.payload,
       };
-    case types.USERS_FETCH_FAILED:
-    case types.FETCH_USER_BY_ID_FAILED:
+    case types.LOGIN_FAILED:
+    case types.LOGOUT_FAILED:
       return {
         ...state,
         loading: false,
@@ -41,4 +40,4 @@ const usersReducer: Reducer<IUserState | undefined, AnyAction> = (state = initia
       return state;
   }
 };
-export default usersReducer;
+export default authReducer;

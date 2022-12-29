@@ -1,28 +1,50 @@
-import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Navigate, Route } from "react-router-dom";
 import { HomePage, LoginPage, LogoutPage, NotFoundPage, UserInfoPage, UsersPage } from "../pages";
 import { Layout } from "../shared/components";
+import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
-    //   <AuthProvider>
     <>
-      <Route path="/login" element={<LoginPage />} />
+      <Route
+        path="/"
+        element={
+          <PublicRoute restricted>
+            <Navigate to="/login" replace />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/login"
+        element={
+          <PublicRoute restricted>
+            <LoginPage />
+          </PublicRoute>
+        }
+      />
       <Route
         path="/home"
         element={
-          //   <RequireAuth>
-          <Layout />
-          //   </RequireAuth>
+          <PrivateRoute>
+            <Layout />
+          </PrivateRoute>
         }
       >
-        <Route index element={<HomePage />} />
         <Route path="users" element={<UsersPage />} />
         <Route path="users/:userId" element={<UserInfoPage />} />
+        <Route index element={<HomePage />} />
       </Route>
-      <Route path="/logout" element={<LogoutPage />} />
+      <Route
+        path="/logout"
+        element={
+          <PrivateRoute>
+            <LogoutPage />
+          </PrivateRoute>
+        }
+      />
       <Route path="*" element={<NotFoundPage />} />
     </>,
-    // </AuthProvider>
   ),
 );
 

@@ -11,7 +11,8 @@ const theme = {
     secondaryTextColor: "#6b6f82",
     primaryBgColor: "#ffffff",
     // secondaryBgColor: '#fcfcff',
-    // accentColor: '#737df9',
+    accentColor: "#48d1cc",
+    btnTextColor: "#00ced1",
     // btnBgColor: '#f4f5ff',
   },
 };

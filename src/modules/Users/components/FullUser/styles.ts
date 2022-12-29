@@ -5,9 +5,10 @@ interface IItem {
 }
 
 export const StyledUser = styled.li<IItem>`
-  background-color: #ace5ee;
-  background-color: ${({ gender }) => (gender === "male" ? "#ace5ee" : "#fadadd")};
-  padding: 30px 20px;
+  background-color: ${({ gender }) => (gender === "male" ? "#afeeee" : "#fadadd")};
+  background-color: #ffffff;
+  border: 2px solid ${({ gender }) => (gender === "male" ? "#afeeee" : "#fadadd")};
+  padding: 30px 10px;
   border-radius: 3px;
   font-weight: 500;
 
@@ -15,7 +16,7 @@ export const StyledUser = styled.li<IItem>`
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border-radius: 3px;
   }
 
