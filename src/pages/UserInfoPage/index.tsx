@@ -17,7 +17,7 @@ const UserInfoPage = () => {
   const { userId } = useParams();
   const user = useSelector(userSelector);
 
-  console.log(userId);
+  
   // useEffect(() => {
   //   const results = axios.get(`https://randomuser.me/api/?results=20`).then(results => console.log(results.data));
   // }, []);
@@ -35,23 +35,23 @@ const UserInfoPage = () => {
         <>
           <img src={user.picture.large} alt="avatar" width="180" />
           <p>
-            {t("name")}:<span>{t(user.name.first)}</span>
+            {t("name")}:<span>{user.name.first}</span>
             <span>{user.name.last}</span>
           </p>
           <p>
-            {t("birthDate")}:<span>{t(user.dob.date)}</span>
+            {t("birthDate")}:<span>{user.dob.date}</span>
           </p>
           <p>
-            {t("Gender")}:<span>{t(user.gender)}</span>
+            {t("Gender")}:<span>{user.gender}</span>
           </p>
           <p>
-            {t("address")}:<span>{t(user.location.country)}</span>
+            {t("address")}:<span>{user.location.country}</span>
           </p>
           <p>
             {t("pnone")}:<span>{t(user.phone)}</span>
           </p>
           <p>
-            {t("registrationDate")}:<span>{t(user.registered.date)}</span>
+            {t("registrationDate")}:<span>{user.registered.date}</span>
           </p>
         </>
       )}

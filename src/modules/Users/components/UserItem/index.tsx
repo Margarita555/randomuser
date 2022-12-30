@@ -11,7 +11,7 @@ interface IFullUser {
   gender: string;
 }
 
-const FullUser = ({ id, avatar, firstName, lastName, birthDate, gender }: IFullUser) => {
+const UserItem = ({ id, avatar, firstName, lastName, birthDate, gender }: IFullUser) => {
   const { t } = useTranslation();
 
   return (
@@ -19,17 +19,17 @@ const FullUser = ({ id, avatar, firstName, lastName, birthDate, gender }: IFullU
       <Link to={`/home/users/${id}`}>
         <img src={avatar} alt="avatar" width="160" />
         <p>
-          {t("name")}: <StyledName>{t(firstName)}</StyledName>
+          {t("name")}:<StyledName>{firstName}</StyledName>
           <span>{t(lastName)}</span>
         </p>
         <p>
-          {t("birthDate")}: <span>{t(birthDate)}</span>
+          {t("birthDate")}:<span>{birthDate}</span>
         </p>
         <p>
-          {t("gender")}: <span>{t(gender)}</span>
+          {t("gender")}:<span>{gender}</span>
         </p>
       </Link>
     </StyledUser>
   );
 };
-export default FullUser;
+export default UserItem;

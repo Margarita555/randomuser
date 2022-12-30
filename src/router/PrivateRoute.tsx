@@ -5,7 +5,7 @@ import { isLoggedInSelector } from "../modules/auth/selectors";
 
 export default function PrivateRoute({ children }: { children: ReactElement<any, any> }) {
   const isLoggedIn = localStorage.getItem("authenticated");
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
   return isLoggedIn === "true" ? children : <Navigate to="/login" />;
 }
 

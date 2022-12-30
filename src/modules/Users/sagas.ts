@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import * as types from "./actionTypes";
-import * as Api from "../../api/UsersAPI";
+import * as Api from "../../api";
 import { IUser } from "./models";
 
 export function* handleFetchUsers() {

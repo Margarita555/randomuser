@@ -1,77 +1,71 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const StyledLogoutLink = styled(Link)`
-  color: #00ced1;
+export const StyledBar = styled.nav`
+  background-color: ${({ theme }) => theme.colors.accentColor};
+  display: flex;
+  align-items: center;
+
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
-    margin-right: 20px;
-    font-size: 16px;
+    padding: 0 15px;
+    height: 50px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) and (max-width: ${({ theme }) => theme.breakpoints.maxTablet}) {
-    margin-right: 25px;
-    font-size: 18px;
+    padding: 0 30px;
+    height: 65px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    margin-right: 30px;
-    font-size: 20px;
+    padding: 0 40px;
+    height: 70px;
   }
 `;
 
-export const StyledTop = styled.div`
+export const StyledNavList = styled.ul`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
-    padding: 15px 15px 15px 20px;
-  }
+  height: 100%;
 
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) and (max-width: ${({ theme }) => theme.breakpoints.maxTablet}) {
-    padding: 15px 30px 15px 25px;
-  }
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    padding: 15px 50px 15px 40px;
-  }
-`;
-
-export const StyledLogo = styled.div`
-  display: flex;
-  align-items: center;
-  img {
+  li {
+    font-weight: 600;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
-      width: 30px;
+      font-size: 16px;
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) and (max-width: ${({ theme }) => theme.breakpoints.maxTablet}) {
-      width: 35px;
+      font-size: 24px;
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-      width: 40px;
-    }
-  }
-  span {
-    font-family: "Monoton";
-    font-size: 38px;
-    color: #008b8b;
-    margin-left: 5px;
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
       font-size: 28px;
     }
+  }
+
+  li:not(:last-child) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
+      margin-right: 5px;
+    }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) and (max-width: ${({ theme }) => theme.breakpoints.maxTablet}) {
-      font-size: 36px;
+      margin-right: 30px;
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
-      font-size: 38px;
+      margin-right: 35px;
     }
   }
 `;
 
-export const StyledWrapper = styled.div`
+export const StyledNavLink = styled(NavLink)`
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #ffffff;
+  height: 100%;
   display: flex;
   align-items: center;
+
+  &.active {
+    color: #009698;
+    background-color: #afeeee;
+  }
 `;

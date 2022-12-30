@@ -9,13 +9,8 @@ export const ErrorMessage = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  // margin-left: auto;
-  // margin-right: auto;
-  width: 250px;
-  padding: 20px 30px;
   background-color: #ffffff;
   color: ${({ theme }) => theme.colors.btnTextColor};
-  font-size: 28px;
   font-weight: 600;
   border: none;
   border-radius: 35px;
@@ -24,14 +19,30 @@ export const StyledButton = styled.button`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
+    width: 200px;
+    padding: 13px 30px;
+    font-size: 20px;
+  }
 
-  // $:hover {
-  //   background-color: #e1e3f8;
-  // }
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) and (max-width: ${({ theme }) => theme.breakpoints.maxTablet}) {
+    width: 200px;
+    padding: 15px 30px;
+    font-size: 24px;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    width: 250px;
+    padding: 18px 30px;
+    font-size: 28px;
+  }
+
+  &:hover {
+    color: #0abab5;
+  }
 `;
 
 export const StyledSection = styled.section`
   background-color: #48d1cc;
   min-height: 100vh;
-  // text-align: center;
 `;

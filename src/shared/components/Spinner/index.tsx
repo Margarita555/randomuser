@@ -4,12 +4,12 @@ import { StyledSpinner } from './styles';
 
 const Spinner: FC = () => {
   const spinnerFeatures = {
-    type: 'InfinitySpin',
-    color: '#737df9',
+    type: "InfinitySpin",
+    color: "#48d1cc",
     height: `${40}`,
     width: `${40}`,
-    ariaLabel: 'oval-loading',
-    secondaryColor: '#B0C4DE',
+    ariaLabel: "oval-loading",
+    secondaryColor: "#B0C4DE",
     strokeWidth: `${3}`,
     strokeWidthSecondary: `${3}`,
   };

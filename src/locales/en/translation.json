@@ -1,6 +1,6 @@
 {
   "en": "en",
-  "uk": "uk",
+  "uk": "ua",
   "home": "Home",
   "notFound": "Oops! Not Found",
   "somethingWentWrong": "Something went wrong. Try again later.",
@@ -15,5 +15,7 @@
   "users": "Users",
   "userInfo": "User Info",
   "login": "Log in",
-  "logout": "Log out"
+  "logout": "Log out",
+  "chooseUserToSeeUserInfo": "Choose a user to see user info",
+  "chooseUser": "Choose a user"
 }
