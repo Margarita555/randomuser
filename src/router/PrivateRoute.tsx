@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { isLoggedInSelector } from "../modules/auth/selectors";
+// import { useSelector } from "react-redux";
+// import { isLoggedInSelector } from "../modules/auth/selectors";
 
 export default function PrivateRoute({ children }: { children: ReactElement<any, any> }) {
   const isLoggedIn = localStorage.getItem("authenticated");

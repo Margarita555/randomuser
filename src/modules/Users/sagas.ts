@@ -3,21 +3,19 @@ import * as types from "./actionTypes";
 import * as Api from "../../api";
 import { IUser } from "./models";
 
-export function* handleFetchUsers() {
+export function* handleFetchUsers(pageNumber: number) {
   try {
-    const users: IUser[] = yield call(Api.fetchUsers);
+    const users: IUser[] = yield call(Api.fetchUsers,pageNumber);
     yield put({ type: types.USERS_FETCH_SUCCEEDED, payload: users });
   } catch (e) {
     yield put({ type: types.USERS_FETCH_FAILED, payload: e });
   }
 }
 
-export function* handleFetchUserById(userId: string) {
+export function* handlePageUpdate() {
   try {
-    const users: IUser[] = yield call(Api.fetchUsers);
-    const user = users.find(user => user.login.md5 === userId);
-    yield put({ type: types.FETCH_USER_BY_ID_SUCCEEDED, payload: user });
+    yield put({ type: types.PAGE_UPDATE_SUCCEEDED });
   } catch (e) {
-    yield put({ type: types.FETCH_USER_BY_ID_FAILED, payload: e });
+    yield put({ type: types.PAGE_UPDATE_FAILED, payload: e });
   }
 }

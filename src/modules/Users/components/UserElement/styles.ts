@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface IItem {
   gender: string;
+  ref?: (node: HTMLLIElement) => void;
 }
 
 export const StyledUser = styled.li<IItem>`

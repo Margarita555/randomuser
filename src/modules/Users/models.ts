@@ -57,7 +57,7 @@ export interface IUser {
 
 export interface IUserState {
   users: IUser[] | [];
-  user: IUser | null;
   loading: boolean;
   error: string | null;
+  pageNumber: number;
 }
