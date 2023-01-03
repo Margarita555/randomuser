@@ -1,8 +1,11 @@
-import { useTranslation } from "react-i18next";
-// import {  } from "./styles";
+import { BannerImage } from "../../assets";
+import { StyledImage } from "./styles";
 
 const HomePage = () => {
-  const { t } = useTranslation();
-  return <section>This is Home Page and very interesting content</section>;
+  return (
+    <section>
+      <StyledImage src={BannerImage} alt="banner" />
+    </section>
+  );
 };
 export default HomePage;

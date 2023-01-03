@@ -6,10 +6,9 @@ interface IItem {
 }
 
 export const StyledUser = styled.li<IItem>`
-  background-color: ${({ gender }) => (gender === "male" ? "#afeeee" : "#fadadd")};
   background-color: #ffffff;
   border: 2px solid ${({ gender }) => (gender === "male" ? "#afeeee" : "#fadadd")};
-  padding: 30px 10px;
+  padding: 30px 15px;
   border-radius: 3px;
   font-weight: 500;
 
@@ -17,12 +16,22 @@ export const StyledUser = styled.li<IItem>`
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     border-radius: 3px;
   }
 
   p {
-    margin-top: 8px;
+    margin-top: 13px;
+    color: #0abab5;
+    color: #de5d83;
+    color: ${({ gender }) => (gender === "male" ? "#0abab5" : "#de5d83")};
+    font-weight: 400;
+  }
+
+  span {
+    margin-left: 5px;
+    color: ${({ theme }) => theme.colors.primaryTextColor};
+    font-weight: 500;
   }
 `;
 

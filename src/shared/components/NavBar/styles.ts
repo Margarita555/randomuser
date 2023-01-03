@@ -13,7 +13,7 @@ export const StyledBar = styled.nav`
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) and (max-width: ${({ theme }) => theme.breakpoints.maxTablet}) {
     padding: 0 30px;
-    height: 65px;
+    height: 55px;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
@@ -33,7 +33,7 @@ export const StyledNavList = styled.ul`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) and (max-width: ${({ theme }) => theme.breakpoints.maxTablet}) {
-      font-size: 24px;
+      font-size: 22px;
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {

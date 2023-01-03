@@ -8,7 +8,7 @@ const Notification = () => {
 
   return (
     <StyledNote>
-      <p>{t("chooseUserToSeeUserInfo")}</p>
+      <p>{t("chooseUserToSeeInfo")}</p>
       <button type="button" onClick={() => navigate("/home/users")}>
         {t("chooseUser")}
       </button>

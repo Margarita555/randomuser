@@ -45,7 +45,7 @@ export const StyledLogo = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) and (max-width: ${({ theme }) => theme.breakpoints.maxTablet}) {
-      width: 35px;
+      width: 32px;
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
@@ -54,7 +54,6 @@ export const StyledLogo = styled.div`
   }
   span {
     font-family: "Monoton";
-    font-size: 38px;
     color: #008b8b;
     margin-left: 5px;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
@@ -62,7 +61,7 @@ export const StyledLogo = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) and (max-width: ${({ theme }) => theme.breakpoints.maxTablet}) {
-      font-size: 36px;
+      font-size: 32px;
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.desktop}) {

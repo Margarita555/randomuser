@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Notification } from "../../modules/users";
+import { convertDate } from "../../shared/helpers";
+import { PhoneImage, LocationImage } from "../../assets";
 import { IUser } from "../../modules/users/models";
-// import { S } from "./styles";
+import { StyledInfo, StyledName, StyledWrapper, StyledItem } from "./styles";
 
 const UserInfoPage = () => {
   const { t } = useTranslation();
@@ -19,35 +21,39 @@ const UserInfoPage = () => {
 
   return (
     <section>
-      {/* {error && <ErrorMessage>{t("somethingWentWrong")}</ErrorMessage>}
-      {isLoading && <Spinner />} */}
       {userId === "plug" && <Notification />}
-      {user && (
-        <>
-          <img src={user.picture.large} alt="avatar" width="180" />
-          <p>
-            {t("name")}:<span>{user.name.first}</span>
-            <span>{user.name.last}</span>
-          </p>
-          <p>
-            {t("birthDate")}:<span>{user.dob.date}</span>
-          </p>
-          <p>
-            {t("Gender")}:<span>{user.gender}</span>
-          </p>
-          <p>
-            {t("address")}:
-            <span>
-              {user.location.street.number + " " + user.location.street.name + " Street, " + user.location.city + ", " + user.location.country}
-            </span>
-          </p>
-          <p>
-            {t("pnone")}:<span>{t(user.phone)}</span>
-          </p>
-          <p>
-            {t("registrationDate")}:<span>{user.registered.date}</span>
-          </p>
-        </>
+      {userId !== "plug" && user && (
+        <StyledInfo gender={user.gender}>
+          <div>
+            <img src={user.picture.large} alt="avatar" />
+            <p>
+              <StyledName gender={user.gender}>{user.name.first}</StyledName>
+              <StyledName gender={user.gender}>{user.name.last}</StyledName>
+            </p>
+            <p>
+              <StyledItem gender={user.gender}>{t("gender")}:</StyledItem>
+              <span>{user.gender}</span>
+            </p>
+            <p>
+              <StyledItem gender={user.gender}>{t("birthDate")}:</StyledItem>
+              <span>{convertDate(user.dob.date)}</span>
+            </p>
+            <p>
+              <StyledItem gender={user.gender}>{t("registrationDate")}:</StyledItem>
+              <span>{convertDate(user.registered.date)}</span>
+            </p>
+            <StyledWrapper gender={user.gender}>
+              <LocationImage />
+              <span>
+                {user.location.street.number + " " + user.location.street.name + " Street, " + user.location.city + ", " + user.location.country}
+              </span>
+            </StyledWrapper>
+            <StyledWrapper gender={user.gender}>
+              <PhoneImage />
+              <span>{t(user.phone)}</span>
+            </StyledWrapper>
+          </div>
+        </StyledInfo>
       )}
     </section>
   );

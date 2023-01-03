@@ -19,6 +19,3 @@ export const StyledNote = styled.div`
     cursor: pointer;
   }
 `;
-// export const StyledButton = styled.button`
-
-// `;

@@ -30,7 +30,7 @@ const LanguageSwitcher = () => {
   return (
     <StyledSwitcher>
       <div onClick={() => setIsSwitcherOpen(!isSwitcherOpen)}>
-        <img src={GlobeImage} alt="globe" width={26} />
+        <img src={GlobeImage} alt="globe" width={22} />
       </div>
       {isSwitcherOpen && (
         <ul>

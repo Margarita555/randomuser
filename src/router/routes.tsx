@@ -10,7 +10,7 @@ const routes = createBrowserRouter(
       <Route
         path="/"
         element={
-          <PublicRoute restricted>
+          <PublicRoute>
             <Navigate to="/login" replace />
           </PublicRoute>
         }
@@ -18,7 +18,7 @@ const routes = createBrowserRouter(
       <Route
         path="/login"
         element={
-          <PublicRoute restricted>
+          <PublicRoute>
             <LoginPage />
           </PublicRoute>
         }
@@ -47,33 +47,5 @@ const routes = createBrowserRouter(
     </>,
   ),
 );
-
-// const routes = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Root />,
-//     errorElement: <NotFoundPage />,
-//     children: [
-//       {
-//         path: "login",
-//         element: <LoginPage />,
-//       },
-//       {
-//         path: "home",
-//         element: <Layout />,
-//         children: [
-//           {
-//
-//             element: <HomePage />,
-//           },
-//         ],
-//       },
-//       {
-//         path: "logout",
-//         element: <LogoutPage />,
-//       },
-//     ],
-//   },
-// ]);
 
 export default routes;

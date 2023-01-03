@@ -13,7 +13,7 @@ export const StyledSwitcher = styled.div`
     position: absolute;
     left: -7px;
     top: 28px;
-    width: 40px;
+    width: 38px;
     box-shadow: 0px 0px 4px rgba(136, 136, 136, 0.24);
     border-radius: 8px;
     z-index: 999;
@@ -31,8 +31,8 @@ export const StyledSwitcher = styled.div`
 
   img {
     border-radius: 50px;
-    height: 24px;
-    width: 24px;
+    height: 22px;
+    width: 22px;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
       height: 20px;
       width: 20px;
@@ -43,10 +43,10 @@ export const StyledSwitcher = styled.div`
 export const StyledButton = styled.button<IButton>`
 width: 100%;
     border: none;
-    padding-top: 7px;
-    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 4px;
     background-color: ${({ active }) => (active ? "#e0ffff" : "#fff")};
-    font-size: 14px;
+    font-size: 12px;
     cursor: pointer;
   }
 `;

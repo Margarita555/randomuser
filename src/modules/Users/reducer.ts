@@ -2,6 +2,7 @@ import { Reducer } from "react";
 import { AnyAction } from "@reduxjs/toolkit";
 import * as types from "./actionTypes";
 import { IUserState } from "./models";
+import { USERS_PER_PAGE } from "../../api/constants"; 
 
 const initialState = {
   users: [],
@@ -18,13 +19,12 @@ const usersReducer: Reducer<IUserState | undefined, AnyAction> = (state = initia
         loading: true,
       };
     case types.USERS_FETCH_SUCCEEDED:
-      const pageMatchesUsersLength = state.users.length / 10 === state.pageNumber;
-      const usersAmountPerPage = 10;
+      const pageMatchesUsersLength = state.users.length / USERS_PER_PAGE === state.pageNumber;
       return {
         ...state,
         loading: false,
         users: pageMatchesUsersLength
-          ? [...state.users.slice(0, state.users.length - usersAmountPerPage), ...action.payload]
+          ? [...state.users.slice(0, state.users.length - USERS_PER_PAGE), ...action.payload]
           : [...state.users, ...action.payload],
       };
     case types.PAGE_UPDATE_SUCCEEDED:
