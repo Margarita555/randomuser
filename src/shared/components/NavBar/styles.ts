@@ -3,13 +3,6 @@ import styled from "styled-components";
 
 export const StyledBar = styled.nav`
   background-color: ${({ theme }) => theme.colors.accentColor};
-  display: flex;
-  align-items: center;
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
-    padding: 0 15px;
-    height: 50px;
-  }
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) and (max-width: ${({ theme }) => theme.breakpoints.maxTablet}) {
     padding: 0 30px;
@@ -23,12 +16,19 @@ export const StyledBar = styled.nav`
 `;
 
 export const StyledNavList = styled.ul`
-  display: flex;
-  height: 100%;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: flex;
+    height: 100%;
+  }
 
   li {
     font-weight: 600;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
+      width: 100%;
       font-size: 16px;
     }
 
@@ -57,12 +57,22 @@ export const StyledNavList = styled.ul`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  padding-left: 10px;
-  padding-right: 10px;
   color: #ffffff;
-  height: 100%;
-  display: flex;
-  align-items: center;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+    border-bottom: 1px solid #fff;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 
   &.active {
     color: #009698;

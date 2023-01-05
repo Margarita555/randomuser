@@ -32,9 +32,10 @@ const UsersPage = () => {
         }
       });
       if (node) observer.current.observe(node);
-    },[isLoading, users?.length, dispatch],);
-  
-  
+    },
+    [isLoading, users?.length, dispatch],
+  );
+
   useEffect(() => {
     dispatch({ type: types.USERS_FETCH_REQUESTED, payload: pageNumber });
   }, [dispatch, pageNumber]);
@@ -46,9 +47,9 @@ const UsersPage = () => {
       <StyledUsersList>
         {users?.map((user, index) => {
           if (users.length === index + 1) {
-            return <UserElement innerRef={lastUserElement} key={user.id.value} user={user} />;
+            return <UserElement innerRef={lastUserElement} key={user.login.md5} user={user} />;
           } else {
-            return <UserElement key={user.id.value} user={user} />;
+            return <UserElement key={user.login.md5} user={user} />;
           }
         })}
       </StyledUsersList>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Notification } from "../../modules/users";
 import { convertDate } from "../../shared/helpers";
@@ -9,22 +9,16 @@ import { StyledInfo, StyledName, StyledWrapper, StyledTitle } from "./styles";
 
 const UserInfoPage = () => {
   const { t } = useTranslation();
-  const { userId } = useParams();
   const location = useLocation();
   const [user, setUser] = useState<IUser | null>(null);
   const [userMode, setUserMode] = useState(false);
 
   useEffect(() => {
-    if (userId !== "blank") {
+    if (location.state) {
+      setUser(location.state.user);
       setUserMode(true);
     } else {
       setUserMode(false);
-    }
-  }, [userId]);
-
-  useEffect(() => {
-    if (location.state) {
-      setUser(location.state.user);
     }
   }, [user, location.state]);
 
