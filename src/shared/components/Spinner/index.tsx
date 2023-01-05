@@ -1,23 +1,8 @@
-import { FC } from 'react';
-import { Oval } from 'react-loader-spinner';
-import { StyledSpinner } from './styles';
+import { HourglassOutlined } from "@ant-design/icons";
+import { StyledSpinner } from "./styles";
 
-const Spinner: FC = () => {
-  const spinnerFeatures = {
-    type: "InfinitySpin",
-    color: "#48d1cc",
-    height: `${40}`,
-    width: `${40}`,
-    ariaLabel: "oval-loading",
-    secondaryColor: "#B0C4DE",
-    strokeWidth: `${3}`,
-    strokeWidthSecondary: `${3}`,
-  };
-  return (
-    <StyledSpinner>
-      <Oval {...spinnerFeatures} />
-    </StyledSpinner>
-  );
-};
+const antIcon = <HourglassOutlined spin style={{ fontSize: 32, color: "#48d1cc" }} />;
+
+const Spinner = () => <StyledSpinner indicator={antIcon} />;
 
 export default Spinner;

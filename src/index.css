@@ -27,12 +27,6 @@
   src: local("Monoton"), url(./shared/fonts/Monoton-Regular.woff) format("woff");
 }
 
-@font-face {
-  font-family: "PlayBold";
-  font-weight: 700;
-  src: local("PlayBold"), url(./shared/fonts/play-bold.woff) format("woff");
-}
-
 body {
   margin: 0;
   font-family: "Gilroy", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",

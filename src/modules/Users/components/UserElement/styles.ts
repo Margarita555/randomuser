@@ -11,7 +11,6 @@ export const StyledUser = styled.li<IItem>`
   padding: 30px 15px;
   border-radius: 3px;
   font-weight: 500;
-  height: 332px;
 
   img {
     display: block;

@@ -5,13 +5,22 @@ import { Notification } from "../../modules/users";
 import { convertDate } from "../../shared/helpers";
 import { PhoneImage, LocationImage } from "../../assets";
 import { IUser } from "../../modules/users/models";
-import { StyledInfo, StyledName, StyledWrapper, StyledItem } from "./styles";
+import { StyledInfo, StyledName, StyledWrapper, StyledTitle } from "./styles";
 
 const UserInfoPage = () => {
   const { t } = useTranslation();
   const { userId } = useParams();
   const location = useLocation();
   const [user, setUser] = useState<IUser | null>(null);
+  const [userMode, setUserMode] = useState(false);
+
+  useEffect(() => {
+    if (userId !== "blank") {
+      setUserMode(true);
+    } else {
+      setUserMode(false);
+    }
+  }, [userId]);
 
   useEffect(() => {
     if (location.state) {
@@ -21,8 +30,8 @@ const UserInfoPage = () => {
 
   return (
     <section>
-      {userId === "plug" && <Notification />}
-      {userId !== "plug" && user && (
+      {!userMode && <Notification />}
+      {userMode && user && (
         <StyledInfo gender={user.gender}>
           <div>
             <img src={user.picture.large} alt="avatar" />
@@ -31,15 +40,15 @@ const UserInfoPage = () => {
               <StyledName gender={user.gender}>{user.name.last}</StyledName>
             </p>
             <p>
-              <StyledItem gender={user.gender}>{t("gender")}:</StyledItem>
+              <StyledTitle gender={user.gender}>{t("gender")}:</StyledTitle>
               <span>{user.gender}</span>
             </p>
             <p>
-              <StyledItem gender={user.gender}>{t("birthDate")}:</StyledItem>
+              <StyledTitle gender={user.gender}>{t("birthDate")}:</StyledTitle>
               <span>{convertDate(user.dob.date)}</span>
             </p>
             <p>
-              <StyledItem gender={user.gender}>{t("registrationDate")}:</StyledItem>
+              <StyledTitle gender={user.gender}>{t("registrationDate")}:</StyledTitle>
               <span>{convertDate(user.registered.date)}</span>
             </p>
             <StyledWrapper gender={user.gender}>
