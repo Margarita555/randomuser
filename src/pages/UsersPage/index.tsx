@@ -32,10 +32,9 @@ const UsersPage = () => {
         }
       });
       if (node) observer.current.observe(node);
-    },
-    [isLoading, users?.length, dispatch],
-  );
-
+    },[isLoading, users?.length, dispatch],);
+  
+  
   useEffect(() => {
     dispatch({ type: types.USERS_FETCH_REQUESTED, payload: pageNumber });
   }, [dispatch, pageNumber]);

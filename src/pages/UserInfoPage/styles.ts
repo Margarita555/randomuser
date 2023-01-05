@@ -130,7 +130,7 @@ export const StyledName = styled.span<IProp>`
   }
 `;
 
-export const StyledItem = styled.span<IProp>`
+export const StyledTitle = styled.span<IProp>`
   color: ${({ gender }) => (gender === "male" ? "#48d1cc" : "#de5d83")};
 `;
 

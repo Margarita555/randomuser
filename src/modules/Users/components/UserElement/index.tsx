@@ -15,7 +15,7 @@ const UserElement = ({ innerRef, user }: IUserElement) => {
   return (
     <StyledUser gender={user.gender} ref={innerRef}>
       <Link to={`/home/users/${user.id.value}`} state={{ user }}>
-        <img src={user.picture.large} alt="avatar" width="160" />
+        <img src={user.picture.large} alt="avatar" width="160" height="160" />
         <p>
           {t("name")}:<StyledName>{user.name.first}</StyledName>
           <span>{t(user.name.last)}</span>
