@@ -32,7 +32,7 @@ const routes = createBrowserRouter(
         }
       >
         <Route path="users" element={<UsersPage />} />
-        <Route path="users/:userId" element={<UserInfoPage />} />
+        <Route path="users/info" element={<UserInfoPage />} />
         <Route index element={<HomePage />} />
       </Route>
       <Route

@@ -18,7 +18,7 @@ const NavBar = () => {
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/home/users/blank">{t("userInfo")}</StyledNavLink>
+          <StyledNavLink to={`/home/users/info`}>{t("userInfo")}</StyledNavLink>
         </li>
       </StyledNavList>
     </StyledBar>
