@@ -21,6 +21,7 @@ export const StyledBurger = styled.div<IBurger>`
   background-color: ${({ theme }) => theme.colors.accentColor};
   padding: 6px;
   border-radius: 2px;
+  border-top-right-radius: ${({ menuIsOpen }) => (menuIsOpen ? "0" : "2px")};
   cursor: ponter;
   div {
     margin-right: 0;
@@ -54,7 +55,10 @@ export const StyledBurger = styled.div<IBurger>`
 export const StyledMenu = styled.div`
   z-index: 100;
   position: absolute;
-  width: 190px;
   top: 32px;
   left: 0;
+  width: 190px;
+  height: 200px;
+  background-color: #48d1cc;
+  border-bottom-left-radius: 3px;
 `;

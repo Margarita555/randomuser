@@ -42,7 +42,7 @@ const UserInfoPage = () => {
               <div>
                 <LocationImage />
                 <span>
-                  {user.location.street.number + " " + user.location.street.name + " Street, " + user.location.city + ", " + user.location.country}
+                  {user.location.street.number + " " + user.location.street.name + ", " + user.location.city + ", " + user.location.country}
                 </span>
               </div>
               <div>
