@@ -1,13 +1,9 @@
-import { useRef, RefObject, MouseEvent, useState } from "react";
-import useOnClickOutside from "../../hooks/useClickOutside";
+import { MouseEvent, useState } from "react";
 import NavBar from "../NavBar";
-import { BurgerImage } from "../../../assets";
 import { StyledMenu, StyledWrapper, StyledBurger } from "./styles";
 
 const MobileMenu = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const menuRef: RefObject<HTMLDivElement> = useRef(null);
-  useOnClickOutside(menuRef, () => setMenuIsOpen(false));
 
   const onLinkClick = (e: MouseEvent<HTMLElement>) => {
     if ((e.target as HTMLElement).nodeName === "A") {
@@ -17,9 +13,15 @@ const MobileMenu = () => {
 
   return (
     <StyledWrapper>
-      {!menuIsOpen && <StyledBurger src={BurgerImage} alt="menu" onClick={() => setMenuIsOpen(true)} />}
+      <StyledBurger onClick={() => setMenuIsOpen(!menuIsOpen)} menuIsOpen={menuIsOpen}>
+        <div>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </StyledBurger>
       {menuIsOpen && (
-        <StyledMenu ref={menuRef} onClick={e => onLinkClick(e)}>
+        <StyledMenu onClick={e => onLinkClick(e)}>
           <NavBar />
         </StyledMenu>
       )}

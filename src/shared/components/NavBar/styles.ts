@@ -75,7 +75,27 @@ export const StyledNavLink = styled(NavLink)`
   }
 
   &.active {
+    position: relative;
     color: #009698;
-    background-color: #afeeee;
+  }
+
+  &.active:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.mobile}) and (max-width: ${({ theme }) => theme.breakpoints.maxMobile}) {
+      top: 5px;
+      left: -17px;
+      border-width: 15px 18px 15px 0;
+      border-color: transparent #48d1cc transparent transparent;
+    }
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      bottom: -17px;
+      left: 45%;
+      border-width: 18px 20px 0 20px;
+      border-color: #48d1cc transparent transparent transparent;
+    }
   }
 `;

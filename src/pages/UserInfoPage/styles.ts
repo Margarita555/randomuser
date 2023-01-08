@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const StyledInfoTop = styled.div`
   width: 300px;
   margin-left: auto;
@@ -111,7 +110,6 @@ export const StyledContacts = styled.div`
   div {
     display: flex;
     align-items: center;
-    // justify-content: center;
   }
   div:not(:last-child) {
     padding-bottom: 20px;
