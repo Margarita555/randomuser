@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Notification } from "../../modules/users";
 import { convertDate } from "../../shared/helpers";
-import { PhoneImage, LocationImage } from "../../assets";
+import { PhoneImage, LocationImage, BgImage } from "../../assets";
 import { IUser } from "../../modules/users/models";
-import { StyledInfo, StyledName, StyledWrapper, StyledTitle } from "./styles";
+import { StyledName, StyledWrapper, StyledTitle, StyledImage, StyledInformation, StyledContacts, StyledInfoTop, StyledBackground } from "./styles";
 
 const UserInfoPage = () => {
   const { t } = useTranslation();
@@ -26,37 +26,47 @@ const UserInfoPage = () => {
     <section>
       {!userMode && <Notification />}
       {userMode && user && (
-        <StyledInfo gender={user.gender}>
-          <div>
-            <img src={user.picture.large} alt="avatar" />
-            <p>
-              <StyledName gender={user.gender}>{user.name.first}</StyledName>
-              <StyledName gender={user.gender}>{user.name.last}</StyledName>
-            </p>
-            <p>
-              <StyledTitle gender={user.gender}>{t("gender")}:</StyledTitle>
-              <span>{user.gender}</span>
-            </p>
-            <p>
-              <StyledTitle gender={user.gender}>{t("birthDate")}:</StyledTitle>
-              <span>{convertDate(user.dob.date)}</span>
-            </p>
-            <p>
-              <StyledTitle gender={user.gender}>{t("registrationDate")}:</StyledTitle>
-              <span>{convertDate(user.registered.date)}</span>
-            </p>
-            <StyledWrapper gender={user.gender}>
-              <LocationImage />
-              <span>
-                {user.location.street.number + " " + user.location.street.name + " Street, " + user.location.city + ", " + user.location.country}
-              </span>
-            </StyledWrapper>
-            <StyledWrapper gender={user.gender}>
-              <PhoneImage />
-              <span>{t(user.phone)}</span>
-            </StyledWrapper>
-          </div>
-        </StyledInfo>
+        <div>
+          <StyledInfoTop>
+            <div>
+              <StyledBackground src={BgImage} alt="background" width={1200} height={200} />
+              <StyledImage src={user.picture.large} alt="avatar" width={220} height={220} />
+            </div>
+          </StyledInfoTop>
+          <StyledName>
+            <span>{user.name.first}</span>
+            <span>{user.name.last}</span>
+          </StyledName>
+          <StyledWrapper>
+            <StyledContacts>
+              <div>
+                <LocationImage />
+                <span>
+                  {user.location.street.number + " " + user.location.street.name + " Street, " + user.location.city + ", " + user.location.country}
+                </span>
+              </div>
+              <div>
+                <PhoneImage />
+                <span>{t(user.phone)}</span>
+              </div>
+            </StyledContacts>
+            <StyledInformation>
+              <h2>{t("userInformation")}:</h2>
+              <p>
+                <StyledTitle>{t("gender")}:</StyledTitle>
+                <span>{user.gender}</span>
+              </p>
+              <p>
+                <StyledTitle>{t("birthDate")}:</StyledTitle>
+                <span>{convertDate(user.dob.date)}</span>
+              </p>
+              <p>
+                <StyledTitle>{t("registrationDate")}:</StyledTitle>
+                <span>{convertDate(user.registered.date)}</span>
+              </p>
+            </StyledInformation>
+          </StyledWrapper>
+        </div>
       )}
     </section>
   );

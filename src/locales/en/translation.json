@@ -15,5 +15,6 @@
   "login": "Log in",
   "logout": "Log out",
   "chooseUserToSeeInfo": "Choose a user to see user info",
-  "chooseUser": "Choose a user"
+  "chooseUser": "Choose a user",
+  "userInformation": "User Information"
 }

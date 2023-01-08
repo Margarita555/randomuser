@@ -6,7 +6,6 @@ import LanguageSwitcher from "../LanguageSwitcher";
 import MobileMenu from "../MobileMenu";
 import { StyledLogoutLink, StyledTop, StyledWrapper, StyledLogo } from "./styles";
 
-
 const Header = () => {
   const { t } = useTranslation();
   const size = useWindowSize();
@@ -23,8 +22,8 @@ const Header = () => {
           <LanguageSwitcher />
         </StyledWrapper>
       </StyledTop>
-      {size.width && size.width < 768.99 && <MobileMenu />}
-      {size.width && size.width > 768.99 && <NavBar />}
+      {size.width && size.width < 767.99 && <MobileMenu />}
+      {size.width && size.width > 767.99 && <NavBar />}
     </header>
   );
 };
