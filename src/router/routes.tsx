@@ -2,7 +2,6 @@ import { createBrowserRouter, createRoutesFromElements, Navigate, Route } from "
 import { HomePage, LoginPage, LogoutPage, NotFoundPage, UserInfoPage, UsersPage } from "../pages";
 import { Layout } from "../shared/components";
 import PrivateRoute from "./PrivateRoute";
-import PublicRoute from "./PublicRoute";
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -10,17 +9,13 @@ const routes = createBrowserRouter(
       <Route
         path="/"
         element={
-          <PublicRoute>
-            <Navigate to="/login" replace />
-          </PublicRoute>
+          <Navigate to="/login" replace />
         }
       />
       <Route
         path="/login"
         element={
-          <PublicRoute>
-            <LoginPage />
-          </PublicRoute>
+          <LoginPage />
         }
       />
       <Route

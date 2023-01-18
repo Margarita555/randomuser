@@ -9,6 +9,7 @@ import { StyledLogoutLink, StyledTop, StyledWrapper, StyledLogo } from "./styles
 const Header = () => {
   const { t } = useTranslation();
   const size = useWindowSize();
+  const mobileSize = size.width && size.width < 767.99;
 
   return (
     <header>
@@ -22,8 +23,8 @@ const Header = () => {
           <LanguageSwitcher />
         </StyledWrapper>
       </StyledTop>
-      {size.width && size.width < 767.99 && <MobileMenu />}
-      {size.width && size.width > 767.99 && <NavBar />}
+      {mobileSize && <MobileMenu />}
+      {!mobileSize && <NavBar />}
     </header>
   );
 };

@@ -2,6 +2,7 @@ import { useEffect, useRef, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { errorSelector, loadingSelector, pageSelector, usersSelector } from "../../modules/users/selectors";
+import { USERS_PER_PAGE } from "../../api/constants";
 import * as types from "../../modules/users/actionTypes";
 import { UserElement } from "../../modules/users";
 import { StyledUsersList } from "./styles";
@@ -17,12 +18,10 @@ const UsersPage = () => {
   const error = useSelector(errorSelector);
   const pageNumber = useSelector(pageSelector);
   const observer = useRef<IntersectionObserver | null>(null);
+  const pageMatchesUsersLength = users && users.length / USERS_PER_PAGE === pageNumber;
 
   const lastUserElement = useCallback(
     (node: HTMLLIElement) => {
-      if (isLoading) {
-        return;
-      }
       if (observer.current) {
         observer.current.disconnect();
       }
@@ -33,25 +32,32 @@ const UsersPage = () => {
       });
       if (node) observer.current.observe(node);
     },
-    [isLoading, users?.length, dispatch],
+    [users?.length, dispatch],
   );
 
   useEffect(() => {
-    dispatch({ type: types.USERS_FETCH_REQUESTED, payload: pageNumber });
-  }, [dispatch, pageNumber]);
+    if (!pageMatchesUsersLength) {
+      dispatch({ type: types.USERS_FETCH_REQUESTED, payload: pageNumber });
+    }
+  }, [dispatch, pageNumber, pageMatchesUsersLength]);
+
+  const addRefAttribute = (index: number) => {
+    const lastUser = users && users.length === index + 1;
+    if (lastUser) {
+      return { innerRef: lastUserElement };
+    } else {
+      return {};
+    }
+  };
 
   return (
     <section>
       {error && <ErrorMessage>{t("somethingWrong")}</ErrorMessage>}
       {isLoading && <Spinner />}
       <StyledUsersList>
-        {users?.map((user, index) => {
-          if (users.length === index + 1) {
-            return <UserElement innerRef={lastUserElement} key={user.login.md5} user={user} />;
-          } else {
-            return <UserElement key={user.login.md5} user={user} />;
-          }
-        })}
+        {users?.map((user, index) => (
+          <UserElement key={user.login.md5} user={user} {...addRefAttribute(index)} />
+        ))}
       </StyledUsersList>
     </section>
   );

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Notification } from "../../modules/users";
-import { convertDate } from "../../shared/helpers";
 import { PhoneImage, LocationImage, BgImage } from "../../assets";
 import { IUser } from "../../modules/users/models";
 import { StyledName, StyledWrapper, StyledTitle, StyledImage, StyledInformation, StyledContacts, StyledInfoTop, StyledBackground } from "./styles";
@@ -12,6 +11,7 @@ const UserInfoPage = () => {
   const location = useLocation();
   const [user, setUser] = useState<IUser | null>(null);
   const [userMode, setUserMode] = useState(false);
+  const userAddress = user?.location.street.number + " " + user?.location.street.name + ", " + user?.location.city + ", " + user?.location.country;
 
   useEffect(() => {
     if (location.state) {
@@ -41,9 +41,7 @@ const UserInfoPage = () => {
             <StyledContacts>
               <div>
                 <LocationImage />
-                <span>
-                  {user.location.street.number + " " + user.location.street.name + ", " + user.location.city + ", " + user.location.country}
-                </span>
+                <span>{userAddress}</span>
               </div>
               <div>
                 <PhoneImage />
@@ -58,11 +56,11 @@ const UserInfoPage = () => {
               </p>
               <p>
                 <StyledTitle>{t("birthDate")}:</StyledTitle>
-                <span>{convertDate(user.dob.date)}</span>
+                <span>{new Date(user.dob.date).toLocaleDateString()}</span>
               </p>
               <p>
                 <StyledTitle>{t("registrationDate")}:</StyledTitle>
-                <span>{convertDate(user.registered.date)}</span>
+                <span>{new Date(user.registered.date).toLocaleDateString()}</span>
               </p>
             </StyledInformation>
           </StyledWrapper>

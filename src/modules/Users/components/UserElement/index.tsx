@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { convertDate } from "../../../../shared/helpers";
 import { StyledUser, StyledName } from "./styles";
 import { IUser } from "../../models";
 
@@ -21,7 +20,7 @@ const UserElement = ({ innerRef, user }: IUserElement) => {
           <span>{t(user.name.last)}</span>
         </p>
         <p>
-          {t("birthDate")}:<span>{convertDate(user.dob.date)}</span>
+          {t("birthDate")}:<span>{new Date(user.dob.date).toLocaleDateString()}</span>
         </p>
         <p>
           {t("gender")}:<span>{user.gender}</span>

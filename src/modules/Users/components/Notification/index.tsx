@@ -6,10 +6,14 @@ const Notification = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
+  const onChooseUserClick = () => {
+    navigate("/home/users");
+  };
+
   return (
     <StyledNote>
       <p>{t("chooseUserToSeeInfo")}</p>
-      <button type="button" onClick={() => navigate("/home/users")}>
+      <button type="button" onClick={onChooseUserClick}>
         {t("chooseUser")}
       </button>
     </StyledNote>

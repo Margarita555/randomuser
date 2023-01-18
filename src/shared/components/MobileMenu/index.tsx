@@ -13,7 +13,6 @@ const MobileMenu = () => {
 
   return (
     <StyledWrapper>
-
       <StyledBurger onClick={() => setMenuIsOpen(!menuIsOpen)} menuIsOpen={menuIsOpen}>
         <div>
           <span></span>
