@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Notification } from "../../modules/users";
 import { PhoneImage, LocationImage, BgImage } from "../../assets";
+import { convertDate } from "../../shared/helpers";
 import { IUser } from "../../modules/users/models";
 import { StyledName, StyledWrapper, StyledTitle, StyledImage, StyledInformation, StyledContacts, StyledInfoTop, StyledBackground } from "./styles";
 
@@ -56,11 +57,11 @@ const UserInfoPage = () => {
               </p>
               <p>
                 <StyledTitle>{t("birthDate")}:</StyledTitle>
-                <span>{new Date(user.dob.date).toLocaleDateString()}</span>
+                <span>{convertDate(user.dob.date)}</span>
               </p>
               <p>
                 <StyledTitle>{t("registrationDate")}:</StyledTitle>
-                <span>{new Date(user.registered.date).toLocaleDateString()}</span>
+                <span>{convertDate(user.registered.date)}</span>
               </p>
             </StyledInformation>
           </StyledWrapper>
